@@ -774,7 +774,7 @@ function App() {
       name: product.name.trim(),
       description: (product.description || "").trim(),
       price: Number(product.price),
-      is_active: product.active
+      active: product.active
     };
 
     if (!Number.isFinite(payload.price) || payload.price < 0) {
