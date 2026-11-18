@@ -167,7 +167,6 @@ function mapRequest(row) {
     assigned: "Equipo"
   };
 }
-
 function mapProduct(row) {
   return {
     id: row.id,
@@ -175,7 +174,7 @@ function mapProduct(row) {
     name: row.name || "",
     description: row.description || "",
     price: Number(row.price || 0),
-    active: row.is_active !== false && row.active !== false
+    active: row.active !== false
   };
 }
 
@@ -816,7 +815,7 @@ function App() {
     try {
       const { error } = await supabase
         .from("menu_products")
-        .update({ is_active: !product.active })
+        .update({ active: !product.active })
         .eq("id", product.id)
         .eq("restaurant_id", restaurantId);
 
